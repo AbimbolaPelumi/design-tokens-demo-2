@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuda Design Tokens - Demo</title>
+    
+    <!-- Google Fonts - Mulish -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Token CSS files -->
+    <link rel="stylesheet" href="../../build/web/token_Primitives_Default.css" id="primitives">
+    <link rel="stylesheet" href="../../build/web/token_Theme_Light.css" id="theme">
+    <link rel="stylesheet" href="../../build/web/token_Brand_Retail.css" id="brand">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--k-font-family-sans);
+            background: var(--k-color-bg-surface);
+            color: var(--k-color-text-primary);
+            transition: all 0.3s ease;
+            line-height: var(--k-font-line-height-6);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--k-color-border-secondary);
+        }
+
+        .header h1 {
+            font-size: var(--k-font-size-3xl);
+            margin-bottom: 1rem;
+            color: var(--k-color-text-brand);
+        }
+
+        .header .subtitle {
+            font-size: var(--k-font-size-lg);
+            color: var(--k-color-text-secondary);
+        }
+
+        .platform-badge {
+            display: inline-block;
+            padding: var(--k-spacing-2) var(--k-spacing-4);
+            background: var(--k-color-bg-accent-purple-light);
+            color: var(--k-color-bg-accent-purple-bold);
+            border-radius: var(--k-radius-full);
+            font-weight: var(--k-font-weight-semibold);
+            margin-top: var(--k-spacing-3);
+            font-size: var(--k-font-size-sm);
+        }
+
+        /* Theme Controls */
+        .theme-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--k-spacing-4);
+            margin-bottom: var(--k-spacing-6);
+            padding: var(--k-spacing-4);
+            background: var(--k-color-bg-primary);
+            border-radius: var(--k-radius-lg);
+            border: 1px solid var(--k-color-border-secondary);
+        }
+
+        .switcher-section h3 {
+            margin-bottom: var(--k-spacing-3);
+            color: var(--k-color-text-brand);
+            font-size: var(--k-font-size-base);
+            text-align: center;
+            font-weight: var(--k-font-weight-semibold);
+        }
+
+        .switcher-buttons {
+            display: flex;
+            gap: var(--k-spacing-2);
+            justify-content: center;
+        }
+
+        .switcher-button {
+            padding: var(--k-spacing-2) var(--k-spacing-4);
+            border: 2px solid var(--k-color-border-secondary);
+            background: var(--k-color-bg-primary);
+            color: var(--k-color-text-primary);
+            border-radius: var(--k-radius-md);
+            cursor: pointer;
+            font-weight: var(--k-font-weight-semibold);
+            transition: all 0.2s;
+            font-size: var(--k-font-size-sm);
+            font-family: var(--k-font-family-sans);
+        }
+
+        .switcher-button.active {
+            background: var(--k-color-bg-brand);
+            color: var(--k-color-text-on-brand);
+            border-color: var(--k-color-border-brand);
+        }
+
+        .switcher-button:hover:not(.active) {
+            background: var(--k-color-bg-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: var(--k-spacing-8);
+        }
+
+        .section h2 {
+            margin-bottom: var(--k-spacing-4);
+            color: var(--k-color-text-brand);
+            font-size: var(--k-font-size-2xl);
+            font-weight: var(--k-font-weight-bold);
+        }
+
+        .card {
+            background: var(--k-color-bg-primary);
+            border: 1px solid var(--k-color-border-secondary);
+            border-radius: var(--k-radius-lg);
+            padding: var(--k-spacing-4);
+            margin-bottom: var(--k-spacing-4);
+            transition: all 0.3s ease;
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--k-spacing-4);
+        }
+
+        .color-card {
+            text-align: center;
+        }
+
+        .color-swatch {
+            height: 100px;
+            border-radius: var(--k-radius-md);
+            margin-bottom: var(--k-spacing-2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--k-color-border-subtle);
+        }
+
+        .swatch-brand { background: var(--k-brand-base); }
+        .swatch-success { background: var(--k-color-bg-success); }
+        .swatch-error { background: var(--k-color-bg-error); }
+        .swatch-warning { background: var(--k-color-bg-warning); }
+        .swatch-blue { background: var(--k-color-bg-accent-blue-bold); }
+        .swatch-green { background: var(--k-color-bg-accent-green-bold); }
+
+        .color-label {
+            font-size: var(--k-font-size-sm);
+            color: var(--k-color-text-secondary);
+            font-weight: var(--k-font-weight-medium);
+            margin-bottom: var(--k-spacing-1);
+        }
+
+        .color-value {
+            font-size: var(--k-font-size-xs);
+            color: var(--k-color-text-tertiary);
+            font-family: monospace;
+        }
+
+        /* Buttons */
+        .button-row {
+            display: flex;
+            gap: var(--k-spacing-3);
+            flex-wrap: wrap;
+            margin-bottom: var(--k-spacing-4);
+        }
+
+        .btn {
+            padding: var(--k-spacing-2) var(--k-spacing-4);
+            border: none;
+            border-radius: var(--k-radius-md);
+            font-size: var(--k-font-size-base);
+            font-weight: var(--k-font-weight-semibold);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--k-font-family-sans);
+        }
+
+        .btn-brand {
+            background: var(--k-color-bg-brand);
+            color: var(--k-color-text-on-brand);
+        }
+
+        .btn-brand:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: var(--k-color-bg-success);
+            color: var(--k-color-text-on-brand);
+        }
+
+        .btn-success:hover {
+            background: var(--k-color-bg-success-hovered);
+        }
+
+        .btn-error {
+            background: var(--k-color-bg-error);
+            color: var(--k-color-text-on-brand);
+        }
+
+        .btn-error:hover {
+            background: var(--k-color-bg-error-hovered);
+        }
+
+        .btn-warning {
+            background: var(--k-color-bg-warning);
+            color: var(--k-color-text-on-brand);
+        }
+
+        .btn-warning:hover {
+            background: var(--k-color-bg-warning-hovered);
+        }
+
+        /* Typography */
+        .typography-demo {
+            padding: var(--k-spacing-4);
+            background: var(--k-color-bg-secondary);
+            border-radius: var(--k-radius-md);
+        }
+
+        .typography-demo h1 {
+            font-size: var(--k-font-size-3xl);
+            line-height: var(--k-font-line-height-7);
+            margin-bottom: var(--k-spacing-3);
+            color: var(--k-color-text-primary);
+        }
+
+        .typography-demo h2 {
+            font-size: var(--k-font-size-xl);
+            line-height: var(--k-font-line-height-6);
+            margin-bottom: var(--k-spacing-2);
+            color: var(--k-color-text-primary);
+        }
+
+        .typography-demo p {
+            font-size: var(--k-font-size-base);
+            line-height: var(--k-font-line-height-6);
+            color: var(--k-color-text-secondary);
+            margin-bottom: var(--k-spacing-3);
+        }
+
+        .typography-demo .text-muted {
+            color: var(--k-color-text-tertiary);
+            font-size: var(--k-font-size-sm);
+        }
+
+        /* Spacing Visual */
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--k-spacing-4);
+        }
+
+        .spacing-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--k-spacing-2);
+        }
+
+        .spacing-visual {
+            height: 40px;
+            background: var(--k-color-bg-brand);
+            border-radius: var(--k-radius-sm);
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--k-spacing-4);
+        }
+
+        .info-card {
+            padding: var(--k-spacing-4);
+            background: var(--k-color-bg-surface);
+            border: 1px solid var(--k-color-border-secondary);
+            border-radius: var(--k-radius-lg);
+            transition: all 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-color: var(--k-brand-base);
+        }
+
+        .info-card .icon {
+            font-size: var(--k-font-size-4xl);
+            margin-bottom: var(--k-spacing-3);
+        }
+
+        .info-card h3 {
+            margin-bottom: var(--k-spacing-2);
+            color: var(--k-color-text-brand);
+            font-size: var(--k-font-size-lg);
+            font-weight: var(--k-font-weight-bold);
+        }
+
+        .info-card p {
+            color: var(--k-color-text-secondary);
+            font-size: var(--k-font-size-sm);
+            line-height: var(--k-font-line-height-5);
+        }
+
+        .footer {
+            margin-top: var(--k-spacing-8);
+            padding-top: var(--k-spacing-6);
+            border-top: 2px solid var(--k-color-border-secondary);
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--k-color-text-secondary);
+            margin-bottom: var(--k-spacing-2);
+        }
+
+        @media (max-width: 768px) {
+            .theme-controls {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Kuda Design Tokens</h1>
+            <p class="subtitle">Automated design system with rem, em, and unitless values</p>
+            <span class="platform-badge">🌐 WEB / CSS</span>
+        </div>
+
+        <div class="theme-controls">
+            <div class="switcher-section">
+                <h3>🎨 Brand</h3>
+                <div class="switcher-buttons">
+                    <button class="switcher-button active" onclick="switchBrand('retail')">Retail</button>
+                    <button class="switcher-button" onclick="switchBrand('business')">Business</button>
+                </div>
+            </div>
+
+            <div class="switcher-section">
+                <h3>🌓 Theme</h3>
+                <div class="switcher-buttons">
+                    <button class="switcher-button active" onclick="switchTheme('light')">Light</button>
+                    <button class="switcher-button" onclick="switchTheme('dark')">Dark</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Colors</h2>
+            <div class="card">
+                <div class="color-grid">
+                    <div class="color-card">
+                        <div class="color-swatch swatch-brand"></div>
+                        <p class="color-label">Brand</p>
+                        <p class="color-value">--brand-base</p>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch swatch-success"></div>
+                        <p class="color-label">Success</p>
+                        <p class="color-value">--color-bg-success</p>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch swatch-error"></div>
+                        <p class="color-label">Error</p>
+                        <p class="color-value">--color-bg-error</p>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch swatch-warning"></div>
+                        <p class="color-label">Warning</p>
+                        <p class="color-value">--color-bg-warning</p>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch swatch-blue"></div>
+                        <p class="color-label">Blue</p>
+                        <p class="color-value">--color-bg-accent-blue-bold</p>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch swatch-green"></div>
+                        <p class="color-label">Green</p>
+                        <p class="color-value">--color-bg-accent-green-bold</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔘 Buttons</h2>
+            <div class="card">
+                <div class="button-row">
+                    <button class="btn btn-brand">Brand Button</button>
+                    <button class="btn btn-success">Success</button>
+                    <button class="btn btn-error">Error</button>
+                    <button class="btn btn-warning">Warning</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Typography</h2>
+            <div class="card">
+                <div class="typography-demo">
+                    <h1>Heading 1 (1.75rem)</h1>
+                    <h2>Heading 2 (1.25rem)</h2>
+                    <p>Body text using 0.938rem with 1.5 unitless line-height. All font sizes use rem for accessibility, respecting user preferences.</p>
+                    <p class="text-muted">Muted text using tertiary color token.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📏 Spacing (rem)</h2>
+            <div class="card">
+                <div class="spacing-grid">
+                    <div class="spacing-item">
+                        <p class="color-label">spacing-2 (0.5rem)</p>
+                        <div class="spacing-visual" style="width: var(--k-spacing-2);"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <p class="color-label">spacing-4 (1rem)</p>
+                        <div class="spacing-visual" style="width: var(--k-spacing-4);"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <p class="color-label">spacing-6 (2rem)</p>
+                        <div class="spacing-visual" style="width: var(--k-spacing-6);"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <p class="color-label">spacing-8 (3rem)</p>
+                        <div class="spacing-visual" style="width: var(--k-spacing-8);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📦 Cards</h2>
+            <div class="card-grid">
+                <div class="info-card">
+                    <div class="icon">🎨</div>
+                    <h3>Consistent Design</h3>
+                    <p>Semantic tokens ensure consistency across all platforms.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">⚡</div>
+                    <h3>Auto-Sync</h3>
+                    <p>Tokens update automatically from Figma changes.</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">♿</div>
+                    <h3>Accessible</h3>
+                    <p>rem units respect user font size preferences.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>✨ Switch themes and brands to see tokens update in real-time!</p>
+            <p><strong id="current-settings">Retail | Light</strong></p>
+        </div>
+    </div>
+
+    <script>
+        let currentBrand = 'retail';
+        let currentTheme = 'light';
+
+        function updateSettings() {
+            document.getElementById('current-settings').textContent = 
+                `${currentBrand.charAt(0).toUpperCase() + currentBrand.slice(1)} | ${currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1)}`;
+        }
+
+        function switchBrand(brand) {
+            const link = document.getElementById('brand');
+            link.href = `../../build/web/token_Brand_${brand === 'retail' ? 'Retail' : 'Business'}.css`;
+            
+            document.querySelectorAll('.switcher-section:first-child .switcher-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            currentBrand = brand;
+            updateSettings();
+        }
+
+        function switchTheme(theme) {
+            const link = document.getElementById('theme');
+            link.href = `../../build/web/token_Theme_${theme === 'light' ? 'Light' : 'Dark'}.css`;
+            
+            document.querySelectorAll('.switcher-section:last-child .switcher-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            currentTheme = theme;
+            updateSettings();
+        }
+    </script>
+</body>
+</html>

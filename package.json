@@ -1,0 +1,20 @@
+{
+    "name": "kuda-design-tokens",
+    "version": "1.0.0",
+    "description": "Kuda design token system with automated Figma sync",
+    "type": "module",
+    "scripts": {
+      "build-tokens": "node tokens/config.js",
+      "build-tokens:watch": "node tokens/config.js --watch",
+      "clean": "rm -rf build/"
+    },
+    "devDependencies": {
+      "style-dictionary": "^4.0.1"
+    },
+    "overrides": {
+      "glob": "^11.0.0"
+    },
+    "author": "Kuda Design Team",
+    "license": "UNLICENSED",
+    "private": true
+  }
