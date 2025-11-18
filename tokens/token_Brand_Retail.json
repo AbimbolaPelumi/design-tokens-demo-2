@@ -1,7 +1,7 @@
 {
   "brand-base": {
     "$type": "color",
-    "$value": "{palette.k-blue.500}"
+    "$value": "{palette.k-purple.800}"
   },
   "brand-base-alpha": {
     "$type": "color",
