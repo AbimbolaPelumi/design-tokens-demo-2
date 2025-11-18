@@ -1,0 +1,38 @@
+{
+  "brand-base": {
+    "$type": "color",
+    "$value": "{palette.k-purple.800}"
+  },
+  "brand-base-alpha": {
+    "$type": "color",
+    "$value": "#40196d00"
+  },
+  "brand-base-alpha-light": {
+    "$type": "color",
+    "$value": "#4f208800"
+  },
+  "brand-dark": {
+    "$type": "color",
+    "$value": "{palette.k-purple.800}"
+  },
+  "brand-darker": {
+    "$type": "color",
+    "$value": "{palette.k-purple.900}"
+  },
+  "brand-light": {
+    "$type": "color",
+    "$value": "{palette.k-purple.700}"
+  },
+  "brand-lighter": {
+    "$type": "color",
+    "$value": "{palette.k-purple.600}"
+  },
+  "brand-lightest": {
+    "$type": "color",
+    "$value": "#40196d33"
+  },
+  "on-brand-dark": {
+    "$type": "color",
+    "$value": "{palette.neutral.white}"
+  }
+}
