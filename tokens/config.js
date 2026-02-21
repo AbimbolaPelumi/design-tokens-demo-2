@@ -16,8 +16,6 @@ const PRIMITIVES = [
   'tokens/src/tokens/token_Typography_Mode1.json',
 ];
 
-const BRAND_RETAIL         = 'tokens/src/tokens/token_Brand_Retail.json';
-const BRAND_BUSINESS       = 'tokens/src/tokens/token_Brand_Business.json';
 const THEME_RETAIL_LIGHT   = 'tokens/src/tokens/token_Theme_RetailLight.json';
 const THEME_RETAIL_DARK    = 'tokens/src/tokens/token_Theme_RetailDark.json';
 const THEME_BUSINESS_LIGHT = 'tokens/src/tokens/token_Theme_BusinessLight.json';
@@ -366,7 +364,7 @@ sdWebPrimitives.platforms.css.files = [{
   options: { showFileHeader: true, outputReferences: false }
 }];
 
-const sdWebRetailLight = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_RETAIL, THEME_RETAIL_LIGHT], 'web'));
+const sdWebRetailLight = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_RETAIL_LIGHT], 'web'));
 registerTransforms(sdWebRetailLight);
 sdWebRetailLight.platforms.css.files = [{
   destination: 'token_Theme_RetailLight.css',
@@ -375,7 +373,7 @@ sdWebRetailLight.platforms.css.files = [{
   options: { showFileHeader: true, outputReferences: true }
 }];
 
-const sdWebRetailDark = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_RETAIL, THEME_RETAIL_DARK], 'web'));
+const sdWebRetailDark = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_RETAIL_DARK], 'web'));
 registerTransforms(sdWebRetailDark);
 sdWebRetailDark.platforms.css.files = [{
   destination: 'token_Theme_RetailDark.css',
@@ -384,7 +382,7 @@ sdWebRetailDark.platforms.css.files = [{
   options: { showFileHeader: true, outputReferences: true }
 }];
 
-const sdWebBusinessLight = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_BUSINESS, THEME_BUSINESS_LIGHT], 'web'));
+const sdWebBusinessLight = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_BUSINESS_LIGHT], 'web'));
 registerTransforms(sdWebBusinessLight);
 sdWebBusinessLight.platforms.css.files = [{
   destination: 'token_Theme_BusinessLight.css',
@@ -393,7 +391,7 @@ sdWebBusinessLight.platforms.css.files = [{
   options: { showFileHeader: true, outputReferences: true }
 }];
 
-const sdWebBusinessDark = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_BUSINESS, THEME_BUSINESS_DARK], 'web'));
+const sdWebBusinessDark = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_BUSINESS_DARK], 'web'));
 registerTransforms(sdWebBusinessDark);
 sdWebBusinessDark.platforms.css.files = [{
   destination: 'token_Theme_BusinessDark.css',
@@ -415,7 +413,7 @@ sdIOSPrimitives.platforms.ios.files = [{
   options: { showFileHeader: true, outputReferences: false, className: 'KudaPrimitives' }
 }];
 
-const sdIOSRetailLight = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_RETAIL, THEME_RETAIL_LIGHT], 'ios'));
+const sdIOSRetailLight = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_RETAIL_LIGHT], 'ios'));
 registerTransforms(sdIOSRetailLight);
 sdIOSRetailLight.platforms.ios.files = [{
   destination: 'KudaTokens+RetailLight.swift',
@@ -424,7 +422,7 @@ sdIOSRetailLight.platforms.ios.files = [{
   options: { showFileHeader: true, outputReferences: true, className: 'KudaThemeRetailLight' }
 }];
 
-const sdIOSRetailDark = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_RETAIL, THEME_RETAIL_DARK], 'ios'));
+const sdIOSRetailDark = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_RETAIL_DARK], 'ios'));
 registerTransforms(sdIOSRetailDark);
 sdIOSRetailDark.platforms.ios.files = [{
   destination: 'KudaTokens+RetailDark.swift',
@@ -433,7 +431,7 @@ sdIOSRetailDark.platforms.ios.files = [{
   options: { showFileHeader: true, outputReferences: true, className: 'KudaThemeRetailDark' }
 }];
 
-const sdIOSBusinessLight = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_BUSINESS, THEME_BUSINESS_LIGHT], 'ios'));
+const sdIOSBusinessLight = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_BUSINESS_LIGHT], 'ios'));
 registerTransforms(sdIOSBusinessLight);
 sdIOSBusinessLight.platforms.ios.files = [{
   destination: 'KudaTokens+BusinessLight.swift',
@@ -442,7 +440,7 @@ sdIOSBusinessLight.platforms.ios.files = [{
   options: { showFileHeader: true, outputReferences: true, className: 'KudaThemeBusinessLight' }
 }];
 
-const sdIOSBusinessDark = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_BUSINESS, THEME_BUSINESS_DARK], 'ios'));
+const sdIOSBusinessDark = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_BUSINESS_DARK], 'ios'));
 registerTransforms(sdIOSBusinessDark);
 sdIOSBusinessDark.platforms.ios.files = [{
   destination: 'KudaTokens+BusinessDark.swift',
@@ -464,7 +462,7 @@ sdAndroidPrimitives.platforms.compose.files = [{
   options: { showFileHeader: true, outputReferences: false, packageName: 'com.kuda.design.tokens' }
 }];
 
-const sdAndroidRetailLight = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_RETAIL, THEME_RETAIL_LIGHT], 'android'));
+const sdAndroidRetailLight = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_RETAIL_LIGHT], 'android'));
 registerTransforms(sdAndroidRetailLight);
 sdAndroidRetailLight.platforms.compose.files = [{
   destination: 'KudaThemeRetailLight.kt',
@@ -473,7 +471,7 @@ sdAndroidRetailLight.platforms.compose.files = [{
   options: { showFileHeader: true, outputReferences: true, packageName: 'com.kuda.design.tokens' }
 }];
 
-const sdAndroidRetailDark = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_RETAIL, THEME_RETAIL_DARK], 'android'));
+const sdAndroidRetailDark = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_RETAIL_DARK], 'android'));
 registerTransforms(sdAndroidRetailDark);
 sdAndroidRetailDark.platforms.compose.files = [{
   destination: 'KudaThemeRetailDark.kt',
@@ -482,7 +480,7 @@ sdAndroidRetailDark.platforms.compose.files = [{
   options: { showFileHeader: true, outputReferences: true, packageName: 'com.kuda.design.tokens' }
 }];
 
-const sdAndroidBusinessLight = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_BUSINESS, THEME_BUSINESS_LIGHT], 'android'));
+const sdAndroidBusinessLight = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_BUSINESS_LIGHT], 'android'));
 registerTransforms(sdAndroidBusinessLight);
 sdAndroidBusinessLight.platforms.compose.files = [{
   destination: 'KudaThemeBusinessLight.kt',
@@ -491,7 +489,7 @@ sdAndroidBusinessLight.platforms.compose.files = [{
   options: { showFileHeader: true, outputReferences: true, packageName: 'com.kuda.design.tokens' }
 }];
 
-const sdAndroidBusinessDark = new StyleDictionary(createSDConfig([...PRIMITIVES, BRAND_BUSINESS, THEME_BUSINESS_DARK], 'android'));
+const sdAndroidBusinessDark = new StyleDictionary(createSDConfig([...PRIMITIVES, THEME_BUSINESS_DARK], 'android'));
 registerTransforms(sdAndroidBusinessDark);
 sdAndroidBusinessDark.platforms.compose.files = [{
   destination: 'KudaThemeBusinessDark.kt',
