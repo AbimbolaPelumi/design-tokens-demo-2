@@ -79,7 +79,7 @@
       "$value": "#2F1C36"
     }
   },
-  "off-white": {
+  "offwhite": {
     "100": {
       "$type": "color",
       "$value": "#FCF7F2"
@@ -195,7 +195,7 @@
       "$value": "#330F0F"
     }
   },
-  "soft-black": {
+  "softblack": {
     "100": {
       "$type": "color",
       "$value": "#C9C8CB"
