@@ -127,13 +127,15 @@
         "$type": "color",
         "$value": "{off-white.100}"
       },
-      "overlay-30": {
-        "$type": "color",
-        "$value": "#1b161d4d"
-      },
-      "overlay-60": {
-        "$type": "color",
-        "$value": "#1b161d99"
+      "overlay": {
+        "30": {
+          "$type": "color",
+          "$value": "#1b161d4d"
+        },
+        "60": {
+          "$type": "color",
+          "$value": "#1b161d99"
+        }
       },
       "primary": {
         "$type": "color",
@@ -314,36 +316,44 @@
     "button": {
       "bg": {
         "destructive": {
-          "$type": "color",
-          "$value": "{red.500}"
-        },
-        "destructive-hover": {
-          "$type": "color",
-          "$value": "{red.600}"
+          "default": {
+            "$type": "color",
+            "$value": "{red.500}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{red.600}"
+          }
         },
         "filled": {
-          "$type": "color",
-          "$value": "{soft-black.900}"
-        },
-        "filled-hover": {
-          "$type": "color",
-          "$value": "{soft-black.800}"
+          "default": {
+            "$type": "color",
+            "$value": "{soft-black.900}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{soft-black.800}"
+          }
         },
         "outlined": {
-          "$type": "color",
-          "$value": "#ffffff00"
-        },
-        "outlined-hover": {
-          "$type": "color",
-          "$value": "#40196d4d"
+          "default": {
+            "$type": "color",
+            "$value": "#ffffff00"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "#40196d4d"
+          }
         },
         "tonal": {
-          "$type": "color",
-          "$value": "{off-white.200}"
-        },
-        "tonal-hover": {
-          "$type": "color",
-          "$value": "{off-white.300}"
+          "default": {
+            "$type": "color",
+            "$value": "{off-white.200}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{off-white.300}"
+          }
         }
       }
     },
@@ -376,13 +386,15 @@
           "$value": "{soft-black.900}"
         }
       },
-      "on-brand": {
-        "$type": "color",
-        "$value": "{off-white.100}"
-      },
-      "on-solid": {
-        "$type": "color",
-        "$value": "{off-white.100}"
+      "on": {
+        "brand": {
+          "$type": "color",
+          "$value": "{off-white.100}"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{off-white.100}"
+        }
       },
       "primary": {
         "$type": "color",
@@ -441,28 +453,36 @@
     },
     "loader": {
       "brand": {
-        "$type": "color",
-        "$value": "{soft-black.900}"
+        "alpha": {
+          "$type": "color",
+          "$value": "#1b161d00"
+        },
+        "fill": {
+          "$type": "color",
+          "$value": "{soft-black.900}"
+        }
       },
-      "brand-alpha": {
-        "$type": "color",
-        "$value": "#1b161d00"
-      },
-      "on-brand": {
-        "$type": "color",
-        "$value": "{off-white.100}"
-      },
-      "on-brand-alpha": {
-        "$type": "color",
-        "$value": "#fcf7f200"
+      "on": {
+        "brand": {
+          "alpha": {
+            "$type": "color",
+            "$value": "#fcf7f200"
+          },
+          "fill": {
+            "$type": "color",
+            "$value": "{off-white.100}"
+          }
+        }
       },
       "white": {
-        "$type": "color",
-        "$value": "{off-white.100}"
-      },
-      "white-alpha": {
-        "$type": "color",
-        "$value": "#fcf7f200"
+        "alpha": {
+          "$type": "color",
+          "$value": "#fcf7f200"
+        },
+        "fill": {
+          "$type": "color",
+          "$value": "{off-white.100}"
+        }
       }
     },
     "static": {
@@ -518,13 +538,15 @@
         "$value": "{off-white.100}",
         "$description": "Used on dark backgrounds (in light mode) or light backgrounds (in dark mode) to ensure readability."
       },
-      "on-brand": {
-        "$type": "color",
-        "$value": "{off-white.100}"
-      },
-      "on-solid": {
-        "$type": "color",
-        "$value": "{off-white.100}"
+      "on": {
+        "brand": {
+          "$type": "color",
+          "$value": "{off-white.100}"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{off-white.100}"
+        }
       },
       "placeholder": {
         "$type": "color",
