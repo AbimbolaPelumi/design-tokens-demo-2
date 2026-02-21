@@ -1,0 +1,62 @@
+{
+  "0": {
+    "$type": "number",
+    "$value": 0
+  },
+  "10": {
+    "$type": "number",
+    "$value": 40
+  },
+  "12": {
+    "$type": "number",
+    "$value": 48
+  },
+  "14": {
+    "$type": "number",
+    "$value": 56
+  },
+  "16": {
+    "$type": "number",
+    "$value": 64
+  },
+  "20": {
+    "$type": "number",
+    "$value": 80
+  },
+  "24": {
+    "$type": "number",
+    "$value": 96
+  },
+  "32": {
+    "$type": "number",
+    "$value": 128
+  },
+  "4": {
+    "$type": "number",
+    "$value": 16
+  },
+  "40": {
+    "$type": "number",
+    "$value": 160
+  },
+  "48": {
+    "$type": "number",
+    "$value": 192
+  },
+  "56": {
+    "$type": "number",
+    "$value": 224
+  },
+  "6": {
+    "$type": "number",
+    "$value": 24
+  },
+  "64": {
+    "$type": "number",
+    "$value": 256
+  },
+  "8": {
+    "$type": "number",
+    "$value": 32
+  }
+}
