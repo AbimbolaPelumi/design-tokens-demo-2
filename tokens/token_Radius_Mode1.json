@@ -1,0 +1,38 @@
+{
+  "2xl": {
+    "$type": "number",
+    "$value": 16
+  },
+  "3xl": {
+    "$type": "number",
+    "$value": 24
+  },
+  "default": {
+    "$type": "number",
+    "$value": 4
+  },
+  "full": {
+    "$type": "number",
+    "$value": 9999
+  },
+  "lg": {
+    "$type": "number",
+    "$value": 8
+  },
+  "md": {
+    "$type": "number",
+    "$value": 6
+  },
+  "none": {
+    "$type": "number",
+    "$value": 0
+  },
+  "sm": {
+    "$type": "number",
+    "$value": 2
+  },
+  "xl": {
+    "$type": "number",
+    "$value": 12
+  }
+}
