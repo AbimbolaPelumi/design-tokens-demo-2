@@ -4,17 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kuda Design Tokens - Demo</title>
-    
-    <!-- Google Fonts - Mulish -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+
     <!-- Token CSS files -->
-    <link rel="stylesheet" href="../../build/web/token_Primitives_Default.css" id="primitives">
-    <link rel="stylesheet" href="../../build/web/token_Theme_Light.css" id="theme">
-    <link rel="stylesheet" href="../../build/web/token_Brand_Retail.css" id="brand">
-    
+    <link rel="stylesheet" href="../../build/web/token_Primitives.css" id="primitives">
+    <link rel="stylesheet" href="../../build/web/token_Theme_RetailLight.css" id="mode">
+
     <style>
         * {
             margin: 0;
@@ -23,11 +17,11 @@
         }
 
         body {
-            font-family: var(--k-font-family-sans);
+            font-family: var(--k-family-body, sans-serif);
             background: var(--k-color-bg-surface);
             color: var(--k-color-text-primary);
             transition: all 0.3s ease;
-            line-height: var(--k-font-line-height-6);
+            line-height: var(--k-line-height-6, 1.5);
         }
 
         .container {
@@ -45,28 +39,28 @@
         }
 
         .header h1 {
-            font-size: var(--k-font-size-3xl);
+            font-size: var(--k-size-2xl, 1.5rem);
             margin-bottom: 1rem;
-            color: var(--k-color-text-brand);
+            color: var(--k-color-text-brand-primary);
         }
 
         .header .subtitle {
-            font-size: var(--k-font-size-lg);
+            font-size: var(--k-size-lg, 1.125rem);
             color: var(--k-color-text-secondary);
         }
 
         .platform-badge {
             display: inline-block;
-            padding: var(--k-spacing-2) var(--k-spacing-4);
-            background: var(--k-color-bg-accent-purple-light);
-            color: var(--k-color-bg-accent-purple-bold);
+            padding: var(--k-spacing-4) var(--k-spacing-6);
+            background: var(--k-color-bg-brand-secondary-default);
+            color: var(--k-color-text-brand-primary);
             border-radius: var(--k-radius-full);
-            font-weight: var(--k-font-weight-semibold);
-            margin-top: var(--k-spacing-3);
-            font-size: var(--k-font-size-sm);
+            font-weight: 600;
+            margin-top: 0.75rem;
+            font-size: var(--k-size-sm, 0.875rem);
         }
 
-        /* Theme Controls */
+        /* Mode Controls */
         .theme-controls {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -79,36 +73,36 @@
         }
 
         .switcher-section h3 {
-            margin-bottom: var(--k-spacing-3);
-            color: var(--k-color-text-brand);
-            font-size: var(--k-font-size-base);
+            margin-bottom: 0.75rem;
+            color: var(--k-color-text-brand-primary);
+            font-size: var(--k-size-md, 1rem);
             text-align: center;
-            font-weight: var(--k-font-weight-semibold);
+            font-weight: 600;
         }
 
         .switcher-buttons {
             display: flex;
-            gap: var(--k-spacing-2);
+            gap: 0.5rem;
             justify-content: center;
         }
 
         .switcher-button {
-            padding: var(--k-spacing-2) var(--k-spacing-4);
+            padding: 0.5rem 1rem;
             border: 2px solid var(--k-color-border-secondary);
             background: var(--k-color-bg-primary);
             color: var(--k-color-text-primary);
             border-radius: var(--k-radius-md);
             cursor: pointer;
-            font-weight: var(--k-font-weight-semibold);
+            font-weight: 600;
             transition: all 0.2s;
-            font-size: var(--k-font-size-sm);
-            font-family: var(--k-font-family-sans);
+            font-size: var(--k-size-sm, 0.875rem);
+            font-family: var(--k-family-body, sans-serif);
         }
 
         .switcher-button.active {
-            background: var(--k-color-bg-brand);
+            background: var(--k-color-bg-brand-primary-default);
             color: var(--k-color-text-on-brand);
-            border-color: var(--k-color-border-brand);
+            border-color: var(--k-color-bg-brand-primary-default);
         }
 
         .switcher-button:hover:not(.active) {
@@ -123,9 +117,9 @@
 
         .section h2 {
             margin-bottom: var(--k-spacing-4);
-            color: var(--k-color-text-brand);
-            font-size: var(--k-font-size-2xl);
-            font-weight: var(--k-font-weight-bold);
+            color: var(--k-color-text-brand-primary);
+            font-size: var(--k-size-xl, 1.25rem);
+            font-weight: 700;
         }
 
         .card {
@@ -151,85 +145,84 @@
         .color-swatch {
             height: 100px;
             border-radius: var(--k-radius-md);
-            margin-bottom: var(--k-spacing-2);
+            margin-bottom: 0.5rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--k-color-border-subtle);
+            border: 1px solid var(--k-color-border-tertiary);
         }
 
-        .swatch-brand { background: var(--k-brand-base); }
-        .swatch-success { background: var(--k-color-bg-success); }
-        .swatch-error { background: var(--k-color-bg-error); }
-        .swatch-warning { background: var(--k-color-bg-warning); }
-        .swatch-blue { background: var(--k-color-bg-accent-blue-bold); }
-        .swatch-green { background: var(--k-color-bg-accent-green-bold); }
+        .swatch-brand   { background: var(--k-color-bg-brand-primary-default); }
+        .swatch-success { background: var(--k-color-bg-state-success-default); }
+        .swatch-error   { background: var(--k-color-bg-state-error-default); }
+        .swatch-warning { background: var(--k-color-bg-state-warning-default); }
+        .swatch-info    { background: var(--k-color-bg-state-info-default); }
+        .swatch-green   { background: var(--k-color-bg-accent-green-default); }
 
         .color-label {
-            font-size: var(--k-font-size-sm);
+            font-size: var(--k-size-sm, 0.875rem);
             color: var(--k-color-text-secondary);
-            font-weight: var(--k-font-weight-medium);
-            margin-bottom: var(--k-spacing-1);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
         }
 
         .color-value {
-            font-size: var(--k-font-size-xs);
-            color: var(--k-color-text-tertiary);
+            font-size: var(--k-size-xs, 0.75rem);
+            color: var(--k-color-text-disabled);
             font-family: monospace;
         }
 
         /* Buttons */
         .button-row {
             display: flex;
-            gap: var(--k-spacing-3);
+            gap: 0.75rem;
             flex-wrap: wrap;
             margin-bottom: var(--k-spacing-4);
         }
 
         .btn {
-            padding: var(--k-spacing-2) var(--k-spacing-4);
+            padding: 0.5rem 1rem;
             border: none;
             border-radius: var(--k-radius-md);
-            font-size: var(--k-font-size-base);
-            font-weight: var(--k-font-weight-semibold);
+            font-size: var(--k-size-md, 1rem);
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            font-family: var(--k-font-family-sans);
+            font-family: var(--k-family-body, sans-serif);
         }
 
         .btn-brand {
-            background: var(--k-color-bg-brand);
+            background: var(--k-color-bg-brand-primary-default);
             color: var(--k-color-text-on-brand);
         }
 
         .btn-brand:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
+            background: var(--k-color-bg-brand-primary-hovered);
         }
 
         .btn-success {
-            background: var(--k-color-bg-success);
-            color: var(--k-color-text-on-brand);
+            background: var(--k-color-bg-state-success-default);
+            color: var(--k-color-text-on-solid);
         }
 
         .btn-success:hover {
-            background: var(--k-color-bg-success-hovered);
+            background: var(--k-color-bg-state-success-hovered);
         }
 
         .btn-error {
-            background: var(--k-color-bg-error);
-            color: var(--k-color-text-on-brand);
+            background: var(--k-color-bg-state-error-default);
+            color: var(--k-color-text-on-solid);
         }
 
         .btn-error:hover {
-            background: var(--k-color-bg-error-hovered);
+            background: var(--k-color-bg-state-error-hovered);
         }
 
         .btn-warning {
-            background: var(--k-color-bg-warning);
-            color: var(--k-color-text-on-brand);
+            background: var(--k-color-bg-state-warning-default);
+            color: var(--k-color-text-on-solid);
         }
 
         .btn-warning:hover {
-            background: var(--k-color-bg-warning-hovered);
+            background: var(--k-color-bg-state-warning-hovered);
         }
 
         /* Typography */
@@ -240,29 +233,30 @@
         }
 
         .typography-demo h1 {
-            font-size: var(--k-font-size-3xl);
-            line-height: var(--k-font-line-height-7);
-            margin-bottom: var(--k-spacing-3);
+            font-size: var(--k-size-2xl, 1.5rem);
+            line-height: var(--k-line-height-7, 1.75);
+            margin-bottom: 0.75rem;
             color: var(--k-color-text-primary);
+            font-family: var(--k-family-heading, sans-serif);
         }
 
         .typography-demo h2 {
-            font-size: var(--k-font-size-xl);
-            line-height: var(--k-font-line-height-6);
-            margin-bottom: var(--k-spacing-2);
+            font-size: var(--k-size-xl, 1.25rem);
+            line-height: var(--k-line-height-6, 1.5);
+            margin-bottom: 0.5rem;
             color: var(--k-color-text-primary);
         }
 
         .typography-demo p {
-            font-size: var(--k-font-size-base);
-            line-height: var(--k-font-line-height-6);
+            font-size: var(--k-size-md, 1rem);
+            line-height: var(--k-line-height-6, 1.5);
             color: var(--k-color-text-secondary);
-            margin-bottom: var(--k-spacing-3);
+            margin-bottom: 0.75rem;
         }
 
         .typography-demo .text-muted {
-            color: var(--k-color-text-tertiary);
-            font-size: var(--k-font-size-sm);
+            color: var(--k-color-text-disabled);
+            font-size: var(--k-size-sm, 0.875rem);
         }
 
         /* Spacing Visual */
@@ -275,12 +269,12 @@
         .spacing-item {
             display: flex;
             flex-direction: column;
-            gap: var(--k-spacing-2);
+            gap: 0.5rem;
         }
 
         .spacing-visual {
             height: 40px;
-            background: var(--k-color-bg-brand);
+            background: var(--k-color-bg-brand-primary-default);
             border-radius: var(--k-radius-sm);
         }
 
@@ -293,7 +287,7 @@
 
         .info-card {
             padding: var(--k-spacing-4);
-            background: var(--k-color-bg-surface);
+            background: var(--k-color-bg-primary);
             border: 1px solid var(--k-color-border-secondary);
             border-radius: var(--k-radius-lg);
             transition: all 0.2s;
@@ -302,25 +296,24 @@
         .info-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border-color: var(--k-brand-base);
         }
 
         .info-card .icon {
-            font-size: var(--k-font-size-4xl);
-            margin-bottom: var(--k-spacing-3);
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
         }
 
         .info-card h3 {
-            margin-bottom: var(--k-spacing-2);
-            color: var(--k-color-text-brand);
-            font-size: var(--k-font-size-lg);
-            font-weight: var(--k-font-weight-bold);
+            margin-bottom: 0.5rem;
+            color: var(--k-color-text-brand-primary);
+            font-size: var(--k-size-lg, 1.125rem);
+            font-weight: 700;
         }
 
         .info-card p {
             color: var(--k-color-text-secondary);
-            font-size: var(--k-font-size-sm);
-            line-height: var(--k-font-line-height-5);
+            font-size: var(--k-size-sm, 0.875rem);
+            line-height: var(--k-line-height-5, 1.25);
         }
 
         .footer {
@@ -332,7 +325,7 @@
 
         .footer p {
             color: var(--k-color-text-secondary);
-            margin-bottom: var(--k-spacing-2);
+            margin-bottom: 0.5rem;
         }
 
         @media (max-width: 768px) {
@@ -345,72 +338,72 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎨 Kuda Design Tokens</h1>
-            <p class="subtitle">Automated design system with rem, em, and unitless values</p>
-            <span class="platform-badge">🌐 WEB / CSS</span>
+            <h1>Kuda Design Tokens</h1>
+            <p class="subtitle">Multi-brand, multi-theme design system</p>
+            <span class="platform-badge">WEB / CSS</span>
         </div>
 
         <div class="theme-controls">
             <div class="switcher-section">
-                <h3>🎨 Brand</h3>
+                <h3>Brand</h3>
                 <div class="switcher-buttons">
-                    <button class="switcher-button active" onclick="switchBrand('retail')">Retail</button>
-                    <button class="switcher-button" onclick="switchBrand('business')">Business</button>
+                    <button class="switcher-button active" onclick="switchBrand('Retail')">Retail</button>
+                    <button class="switcher-button" onclick="switchBrand('Business')">Business</button>
                 </div>
             </div>
 
             <div class="switcher-section">
-                <h3>🌓 Theme</h3>
+                <h3>Theme</h3>
                 <div class="switcher-buttons">
-                    <button class="switcher-button active" onclick="switchTheme('light')">Light</button>
-                    <button class="switcher-button" onclick="switchTheme('dark')">Dark</button>
+                    <button class="switcher-button active" onclick="switchTheme('Light')">Light</button>
+                    <button class="switcher-button" onclick="switchTheme('Dark')">Dark</button>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>🎨 Colors</h2>
+            <h2>Colors</h2>
             <div class="card">
                 <div class="color-grid">
                     <div class="color-card">
                         <div class="color-swatch swatch-brand"></div>
                         <p class="color-label">Brand</p>
-                        <p class="color-value">--brand-base</p>
+                        <p class="color-value">--k-color-bg-brand-primary-default</p>
                     </div>
                     <div class="color-card">
                         <div class="color-swatch swatch-success"></div>
                         <p class="color-label">Success</p>
-                        <p class="color-value">--color-bg-success</p>
+                        <p class="color-value">--k-color-bg-state-success-default</p>
                     </div>
                     <div class="color-card">
                         <div class="color-swatch swatch-error"></div>
                         <p class="color-label">Error</p>
-                        <p class="color-value">--color-bg-error</p>
+                        <p class="color-value">--k-color-bg-state-error-default</p>
                     </div>
                     <div class="color-card">
                         <div class="color-swatch swatch-warning"></div>
                         <p class="color-label">Warning</p>
-                        <p class="color-value">--color-bg-warning</p>
+                        <p class="color-value">--k-color-bg-state-warning-default</p>
                     </div>
                     <div class="color-card">
-                        <div class="color-swatch swatch-blue"></div>
-                        <p class="color-label">Blue</p>
-                        <p class="color-value">--color-bg-accent-blue-bold</p>
+                        <div class="color-swatch swatch-info"></div>
+                        <p class="color-label">Info</p>
+                        <p class="color-value">--k-color-bg-state-info-default</p>
                     </div>
                     <div class="color-card">
                         <div class="color-swatch swatch-green"></div>
-                        <p class="color-label">Green</p>
-                        <p class="color-value">--color-bg-accent-green-bold</p>
+                        <p class="color-label">Green Accent</p>
+                        <p class="color-value">--k-color-bg-accent-green-default</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>🔘 Buttons</h2>
+            <h2>Buttons</h2>
             <div class="card">
                 <div class="button-row">
-                    <button class="btn btn-brand">Brand Button</button>
+                    <button class="btn btn-brand">Brand</button>
                     <button class="btn btn-success">Success</button>
                     <button class="btn btn-error">Error</button>
                     <button class="btn btn-warning">Warning</button>
@@ -419,19 +412,19 @@
         </div>
 
         <div class="section">
-            <h2>📝 Typography</h2>
+            <h2>Typography</h2>
             <div class="card">
                 <div class="typography-demo">
-                    <h1>Heading 1 (1.75rem)</h1>
-                    <h2>Heading 2 (1.25rem)</h2>
-                    <p>Body text using 0.938rem with 1.5 unitless line-height. All font sizes use rem for accessibility, respecting user preferences.</p>
-                    <p class="text-muted">Muted text using tertiary color token.</p>
+                    <h1>Heading (size-2xl)</h1>
+                    <h2>Subheading (size-xl)</h2>
+                    <p>Body text using size-md with line-height-6. All font sizes use rem for accessibility.</p>
+                    <p class="text-muted">Muted / disabled text using the disabled text token.</p>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>📏 Spacing (rem)</h2>
+            <h2>Spacing (rem)</h2>
             <div class="card">
                 <div class="spacing-grid">
                     <div class="spacing-item">
@@ -443,11 +436,11 @@
                         <div class="spacing-visual" style="width: var(--k-spacing-4);"></div>
                     </div>
                     <div class="spacing-item">
-                        <p class="color-label">spacing-6 (2rem)</p>
+                        <p class="color-label">spacing-6 (1.5rem)</p>
                         <div class="spacing-visual" style="width: var(--k-spacing-6);"></div>
                     </div>
                     <div class="spacing-item">
-                        <p class="color-label">spacing-8 (3rem)</p>
+                        <p class="color-label">spacing-8 (2rem)</p>
                         <div class="spacing-visual" style="width: var(--k-spacing-8);"></div>
                     </div>
                 </div>
@@ -455,7 +448,7 @@
         </div>
 
         <div class="section">
-            <h2>📦 Cards</h2>
+            <h2>Cards</h2>
             <div class="card-grid">
                 <div class="info-card">
                     <div class="icon">🎨</div>
@@ -465,7 +458,7 @@
                 <div class="info-card">
                     <div class="icon">⚡</div>
                     <h3>Auto-Sync</h3>
-                    <p>Tokens update automatically from Figma changes.</p>
+                    <p>Tokens update automatically from Figma changes via Zeroheight.</p>
                 </div>
                 <div class="info-card">
                     <div class="icon">♿</div>
@@ -476,44 +469,36 @@
         </div>
 
         <div class="footer">
-            <p>✨ Switch themes and brands to see tokens update in real-time!</p>
+            <p>Switch brand and theme to see tokens update in real-time.</p>
             <p><strong id="current-settings">Retail | Light</strong></p>
         </div>
     </div>
 
     <script>
-        let currentBrand = 'retail';
-        let currentTheme = 'light';
+        let currentBrand = 'Retail';
+        let currentTheme = 'Light';
 
-        function updateSettings() {
-            document.getElementById('current-settings').textContent = 
-                `${currentBrand.charAt(0).toUpperCase() + currentBrand.slice(1)} | ${currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1)}`;
+        function updateMode() {
+            document.getElementById('mode').href =
+                `../../build/web/token_Theme_${currentBrand}${currentTheme}.css`;
+            document.getElementById('current-settings').textContent =
+                `${currentBrand} | ${currentTheme}`;
         }
 
         function switchBrand(brand) {
-            const link = document.getElementById('brand');
-            link.href = `../../build/web/token_Brand_${brand === 'retail' ? 'Retail' : 'Business'}.css`;
-            
-            document.querySelectorAll('.switcher-section:first-child .switcher-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
             currentBrand = brand;
-            updateSettings();
+            document.querySelectorAll('.switcher-section:first-child .switcher-button').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === brand);
+            });
+            updateMode();
         }
 
         function switchTheme(theme) {
-            const link = document.getElementById('theme');
-            link.href = `../../build/web/token_Theme_${theme === 'light' ? 'Light' : 'Dark'}.css`;
-            
-            document.querySelectorAll('.switcher-section:last-child .switcher-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
             currentTheme = theme;
-            updateSettings();
+            document.querySelectorAll('.switcher-section:last-child .switcher-button').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === theme);
+            });
+            updateMode();
         }
     </script>
 </body>
