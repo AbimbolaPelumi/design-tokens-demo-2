@@ -15,7 +15,7 @@
         "orange": {
           "default": {
             "$type": "color",
-            "$value": "{orange.300}"
+            "$value": "{orange.200}"
           },
           "lightest": {
             "$type": "color",
@@ -35,11 +35,11 @@
         "soft-black": {
           "default": {
             "$type": "color",
-            "$value": "{soft-black.900}"
+            "$value": "{softblack.900}"
           },
           "lightest": {
             "$type": "color",
-            "$value": "{soft-black.50}"
+            "$value": "{softblack.50}"
           }
         },
         "yellow": {
@@ -120,12 +120,26 @@
       },
       "disabled*": {
         "$type": "color",
-        "$value": "{off-white.200}",
+        "$value": "{offwhite.200}",
         "$description": "Background for disabled components (inputs, buttons, etc.)."
       },
       "modal": {
         "$type": "color",
-        "$value": "{off-white.100}"
+        "$value": "{offwhite.100}"
+      },
+      "opacity": {
+        "offwhite": {
+          "0": {
+            "$type": "color",
+            "$value": "#fff9f000",
+            "$description": "Background for disabled components (inputs, buttons, etc.)."
+          },
+          "100": {
+            "$type": "color",
+            "$value": "#FFF9F0",
+            "$description": "Background for disabled components (inputs, buttons, etc.)."
+          }
+        }
       },
       "overlay": {
         "30": {
@@ -139,11 +153,11 @@
       },
       "primary": {
         "$type": "color",
-        "$value": "{off-white.200}"
+        "$value": "{offwhite.200}"
       },
       "secondary": {
         "$type": "color",
-        "$value": "{off-white.300}"
+        "$value": "{offwhite.300}"
       },
       "state": {
         "error": {
@@ -179,25 +193,25 @@
         "warning": {
           "default": {
             "$type": "color",
-            "$value": "{orange.500}"
+            "$value": "{orange.200}"
           },
           "hovered": {
             "$type": "color",
-            "$value": "{orange.600}"
+            "$value": "{orange.300}"
           }
         }
       },
       "surface": {
         "$type": "color",
-        "$value": "{off-white.100}"
+        "$value": "{offwhite.100}"
       },
       "tertiary": {
         "$type": "color",
-        "$value": "{off-white.400}"
+        "$value": "{offwhite.400}"
       },
       "transparent": {
         "$type": "color",
-        "$value": "#fff9f01a",
+        "$value": "#fff9f014",
         "$description": "Background for disabled components (inputs, buttons, etc.)."
       }
     },
@@ -247,24 +261,24 @@
       "brand": {
         "primary": {
           "$type": "color",
-          "$value": "#40196d4d"
+          "$value": "{purple.500}"
         },
         "secondary": {
           "$type": "color",
-          "$value": "{lavender.100}"
+          "$value": "{lavender.500}"
         }
       },
       "disabled": {
         "$type": "color",
-        "$value": "{off-white.400}"
+        "$value": "{offwhite.400}"
       },
       "primary": {
         "$type": "color",
-        "$value": "{off-white.400}"
+        "$value": "{offwhite.400}"
       },
       "secondary": {
         "$type": "color",
-        "$value": "{off-white.300}"
+        "$value": "{offwhite.300}"
       },
       "state": {
         "error": {
@@ -310,7 +324,7 @@
       },
       "tertiary": {
         "$type": "color",
-        "$value": "{off-white.200}"
+        "$value": "{offwhite.200}"
       }
     },
     "button": {
@@ -342,9 +356,21 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "#40196d4d"
+            "$value": "#40196d1a"
           }
         },
+        "tonal": {
+          "default": {
+            "$type": "color",
+            "$value": "{lavender.100}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{lavender.200}"
+          }
+        }
+      },
+      "border": {
         "tonal": {
           "default": {
             "$type": "color",
@@ -386,23 +412,27 @@
           "$value": "{lavender.500}"
         }
       },
+      "disabled": {
+        "$type": "color",
+        "$value": "{softblack.100}"
+      },
       "on": {
         "brand": {
           "$type": "color",
-          "$value": "{off-white.100}"
+          "$value": "{offwhite.100}"
         },
         "solid": {
           "$type": "color",
-          "$value": "{off-white.100}"
+          "$value": "{offwhite.100}"
         }
       },
       "primary": {
         "$type": "color",
-        "$value": "{soft-black.900}"
+        "$value": "{softblack.900}"
       },
       "secondary": {
         "$type": "color",
-        "$value": "{soft-black.300}"
+        "$value": "{softblack.300}"
       },
       "state": {
         "error": {
@@ -448,7 +478,7 @@
       },
       "tertiary": {
         "$type": "color",
-        "$value": "{soft-black.200}"
+        "$value": "{softblack.200}"
       }
     },
     "loader": {
@@ -470,7 +500,7 @@
           },
           "fill": {
             "$type": "color",
-            "$value": "{off-white.100}"
+            "$value": "{offwhite.100}"
           }
         }
       },
@@ -481,22 +511,32 @@
         },
         "fill": {
           "$type": "color",
-          "$value": "{off-white.100}"
+          "$value": "{offwhite.100}"
         }
       }
     },
     "static": {
       "black": {
         "$type": "color",
-        "$value": "{soft-black.900}"
+        "$value": "{softblack.900}"
       },
-      "brand": {
+      "lavendar": {
+        "default": {
+          "$type": "color",
+          "$value": "{lavender.500}"
+        },
+        "lightest": {
+          "$type": "color",
+          "$value": "{lavender.100}"
+        }
+      },
+      "purple": {
         "$type": "color",
         "$value": "{purple.500}"
       },
       "white": {
         "$type": "color",
-        "$value": "{off-white.100}"
+        "$value": "{offwhite.100}"
       }
     },
     "text": {
@@ -530,36 +570,36 @@
       },
       "disabled": {
         "$type": "color",
-        "$value": "{soft-black.200}",
+        "$value": "{softblack.200}",
         "$description": "Low-emphasis or de-emphasized text like captions, muted descriptions, or disabled metadata."
       },
       "inverted": {
         "$type": "color",
-        "$value": "{off-white.100}",
+        "$value": "{offwhite.100}",
         "$description": "Used on dark backgrounds (in light mode) or light backgrounds (in dark mode) to ensure readability."
       },
       "on": {
         "brand": {
           "$type": "color",
-          "$value": "{off-white.100}"
+          "$value": "{offwhite.100}"
         },
         "solid": {
           "$type": "color",
-          "$value": "{off-white.100}"
+          "$value": "{offwhite.100}"
         }
       },
       "placeholder": {
         "$type": "color",
-        "$value": "{soft-black.200}",
+        "$value": "{softblack.200}",
         "$description": "Reserved for placeholder text inside inputs and form elements. Not intended for labels or body copy."
       },
       "primary": {
         "$type": "color",
-        "$value": "{soft-black.900}"
+        "$value": "{softblack.900}"
       },
       "secondary": {
         "$type": "color",
-        "$value": "{soft-black.400}"
+        "$value": "{softblack.400}"
       },
       "state": {
         "error": {
@@ -605,7 +645,7 @@
       },
       "tertiary": {
         "$type": "color",
-        "$value": "{soft-black.200}",
+        "$value": "{softblack.200}",
         "$description": "Low-emphasis or de-emphasized text like captions, muted descriptions, or disabled metadata."
       }
     }
