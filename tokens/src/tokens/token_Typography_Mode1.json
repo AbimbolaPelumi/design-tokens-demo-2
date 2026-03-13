@@ -2,7 +2,7 @@
   "family": {
     "body": {
       "$type": "string",
-      "$value": "Suisse Int'l"
+      "$value": "Suisse Intl"
     },
     "heading": {
       "$type": "string",
